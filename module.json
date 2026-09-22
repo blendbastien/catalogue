@@ -2,7 +2,7 @@
   "id": "last-horizon-catalogue",
   "title": "The Last Horizon — Le Catalogue (Boutique du Système)",
   "description": "La Boutique du Système en fenêtre Foundry : 8 121 entrées livrées, entièrement éditables (mode édition, catégories, types, icônes vectorielles, thèmes, roulette, saisons, niveaux), achat créant l'objet sur la fiche Custom System Builder, recherches quotidiennes limitées par joueur (contrôlées par le MJ), import en compendium.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "authors": [
     {
       "name": "Bastien"
