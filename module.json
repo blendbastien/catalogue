@@ -1,13 +1,31 @@
 {
   "id": "last-horizon-catalogue",
   "title": "The Last Horizon — Le Catalogue (Boutique du Système)",
-  "description": "La Boutique du Système en fenêtre Foundry : 7 779 entrées, niveau de boutique contrôlé par le MJ, achat créant l'objet sur la fiche Custom System Builder, import en compendium.",
-  "version": "1.0.0",
-  "authors": [{ "name": "Bastien" }],
-  "compatibility": { "minimum": "12", "verified": "13" },
-  "esmodules": ["scripts/main.js"],
-  "styles": ["styles/catalogue.css"],
-  "relationships": { "recommends": [{ "id": "custom-system-builder", "type": "system" }] },
+  "description": "La Boutique du Système en fenêtre Foundry : 8 121 entrées livrées, entièrement éditables (mode édition, catégories, types, icônes vectorielles, thèmes, roulette, saisons, niveaux), achat créant l'objet sur la fiche Custom System Builder, recherches quotidiennes limitées par joueur (contrôlées par le MJ), import en compendium.",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Bastien"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/catalogue.css"
+  ],
+  "relationships": {
+    "recommends": [
+      {
+        "id": "custom-system-builder",
+        "type": "system"
+      }
+    ]
+  },
   "manifest": "https://github.com/blendbastien/catalogue/releases/latest/download/module.json",
   "download": "https://github.com/blendbastien/catalogue/releases/latest/download/last-horizon-catalogue.zip",
   "url": "https://github.com/blendbastien/catalogue"
