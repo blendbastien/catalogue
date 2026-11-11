@@ -1,0 +1,6 @@
+<form>
+  <p>Crée un compendium d'Items par type coché (dans le monde) à partir des articles de la Boutique. Les articles déjà importés (même identifiant) sont ignorés ; relancer met à jour sans doublon. Les objets utilisent la correspondance CSB configurée.</p>
+  {{#each types}}<div class="form-group"><label>{{v}} ({{n}})</label><input type="checkbox" name="{{k}}" checked></div>{{/each}}
+  {{#unless types.length}}<p><b>La Boutique ne contient aucun article.</b></p>{{/unless}}
+  <footer class="sheet-footer"><button type="submit"><i class="fa-solid fa-boxes-stacked"></i> Importer</button></footer>
+</form>

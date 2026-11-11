@@ -1,0 +1,181 @@
+/* ══ 2.8.0 : DA système / jeu vidéo ══ */
+:root{--op-detail:88%;--op-banner:82%}
+.gmzone.hidden{display:none!important}
+/* opacités réglables (paramètres du module) */
+.ticker{background:linear-gradient(180deg,color-mix(in srgb,var(--tk0) var(--op-banner),transparent),color-mix(in srgb,var(--tk1) var(--op-banner),transparent) 50%,color-mix(in srgb,var(--tk0) var(--op-banner),transparent))}
+header,.tools{background:color-mix(in srgb,var(--s0) var(--op-banner),transparent)!important}
+#detail{background:linear-gradient(180deg,color-mix(in srgb,var(--s1) var(--op-detail),transparent),color-mix(in srgb,var(--s0) var(--op-detail),transparent))}
+.dwin{background:color-mix(in srgb,var(--s1) var(--op-detail),transparent)}
+/* lignes lumineuses entre les hexagones du fond */
+#hexfx{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:calc(var(--bgo,1) * .9);filter:var(--bgf,none);mix-blend-mode:screen}
+/* séparateur de rang : structure commune (thèmes clairs compris) */
+.rsec .rbn{display:flex;align-items:center;gap:12px}.rsec .rbn .sh{display:none}
+
+/* ─── socle néon (thèmes sombres) ─── */
+.neo header{border-bottom:1px solid color-mix(in srgb,var(--acc) 40%,var(--line));box-shadow:0 1px 0 color-mix(in srgb,var(--acc) 18%,transparent),0 10px 26px -14px color-mix(in srgb,var(--acc) 70%,transparent)}
+.neo .tools{border-bottom:1px solid color-mix(in srgb,var(--acc2) 30%,var(--line))}
+
+/* boutons HUD : coins coupés, liseré néon, reflet au survol */
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn,.lockmode){--bc:var(--acc);position:relative;overflow:hidden;border:none!important;border-radius:0!important;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  background:linear-gradient(135deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(315deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 22%,var(--s2)),color-mix(in srgb,var(--bc) 6%,var(--s1)) 60%,color-mix(in srgb,var(--bc) 12%,var(--s1)))!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 62%,transparent),inset 0 1px 0 #ffffff26,inset 0 -2px 0 color-mix(in srgb,var(--bc) 55%,transparent),inset 0 0 16px color-mix(in srgb,var(--bc) 16%,transparent)!important;
+  color:var(--w)!important;font-weight:700;text-shadow:0 0 8px color-mix(in srgb,var(--bc) 75%,transparent);transition:filter .15s,transform .15s}
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn,.lockmode)::after{content:'';position:absolute;top:0;bottom:0;left:-70%;width:45%;background:linear-gradient(100deg,transparent,#ffffff38,transparent);transform:skewX(-20deg);transition:left .5s ease;pointer-events:none}
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn,.lockmode):hover:not(:disabled){filter:brightness(1.18) saturate(1.1);transform:translateY(-1px)}
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn,.lockmode):hover:not(:disabled)::after{left:125%}
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn):active:not(:disabled){transform:translateY(0);filter:brightness(1.35)}
+.neo :is(.hbtn,.mjbar .tg,.dact button,.mbtn):disabled{filter:grayscale(.7);opacity:.45}
+.neo :is(.hbtn.on,.mjbar .tg.on){background:linear-gradient(135deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(315deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 48%,var(--s2)),color-mix(in srgb,var(--bc) 24%,var(--s1)))!important;box-shadow:inset 0 0 0 1px var(--bc),inset 0 0 22px color-mix(in srgb,var(--bc) 45%,transparent)!important}
+.neo .hbtn{padding:9px 15px 9px 14px;letter-spacing:.22em}
+.neo .hbtn.mj,.neo .mjbar .tg,.neo .dact button.ed-b{--bc:var(--amber)}
+.neo .mjbar .tg.add,.neo .mbtn.ok{--bc:var(--green)}
+.neo .mjbar .tg.del,.neo .dact button.del-b,.neo .mbtn.del{--bc:var(--red)}
+.neo .mbtn.gold{--bc:var(--gold)}
+.neo .dact{gap:10px}
+.neo .dact button{padding:11px 10px}
+.neo .dact button.buy-b{--bc:var(--gold);font-size:11px;letter-spacing:.28em;flex-basis:100%;order:-1;padding:13px}
+.neo .dact button.buy-b:not(:disabled){animation:buyGlow 2.4s ease-in-out infinite}
+@keyframes buyGlow{50%{filter:brightness(1.22)}}
+.neo .mjbar .tg{padding:5px 12px}
+/* boutons icône (formulaires) et fermeture */
+.neo :is(.ibtn,.mhead .mx,.gclose){border-radius:0;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 50%,transparent),inset 0 0 10px color-mix(in srgb,var(--acc) 14%,transparent);border:none}
+.neo .mhead .mx:hover{box-shadow:inset 0 0 0 1px var(--red),inset 0 0 12px color-mix(in srgb,var(--red) 35%,transparent)}
+.neo .tabs button{position:relative;font-weight:700;transition:.15s}
+.neo .tabs button.on{color:var(--w);text-shadow:0 0 8px var(--acc);border-bottom-color:var(--acc);background:linear-gradient(0deg,color-mix(in srgb,var(--acc) 16%,transparent),transparent)}
+
+/* recherche */
+.neo .search{padding:0;border-radius:0;background:none;animation:none;box-shadow:none;max-width:400px;filter:drop-shadow(0 0 9px color-mix(in srgb,var(--acc) 38%,transparent))}
+.neo .search::before{content:'';position:absolute;inset:0;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);background:linear-gradient(110deg,var(--acc) 0%,var(--acc2) 35%,#ffffff 50%,var(--acc2) 65%,var(--acc) 100%);background-size:260% 100%;animation:bqShine 4.5s linear infinite}
+.neo .search input{position:relative;margin:1.5px;width:calc(100% - 3px)!important;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);border-radius:0!important;padding:12px 74px 12px 48px!important;background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 9%,var(--s1)),var(--s1) 55%,color-mix(in srgb,var(--acc2) 8%,var(--s1)))!important;font-family:var(--f-mono)!important;letter-spacing:.08em;box-shadow:none!important}
+.neo .search input::placeholder{color:color-mix(in srgb,var(--acc-l) 55%,var(--mute));letter-spacing:.14em}
+.neo .search input:focus{box-shadow:inset 0 0 26px color-mix(in srgb,var(--acc) 22%,transparent)!important}
+.neo .search i{left:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;z-index:2;color:var(--s0);background:linear-gradient(135deg,var(--acc-l),var(--acc) 55%,var(--acc2));clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);filter:none}
+.neo .search i svg{width:15px;height:15px;stroke-width:2.4}
+.search .skey{position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:2;padding:3px 8px 2px;border:1px solid color-mix(in srgb,var(--acc) 55%,transparent);border-bottom-width:2px;border-radius:3px;background:var(--s2);font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;color:var(--acc-l);pointer-events:none;text-shadow:0 0 6px var(--acc)}
+.search .sscan{position:absolute;inset:1.5px;z-index:1;overflow:hidden;pointer-events:none;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);display:none}
+.neo .search:focus-within .sscan{display:block}
+.search .sscan::after{content:'';position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--acc) 26%,transparent),transparent);animation:sScan 2.4s ease-in-out infinite}
+@keyframes sScan{from{transform:translateX(-110%)}to{transform:translateX(300%)}}
+.neo .sqbox{border:none;border-radius:0;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);--bc:var(--acc);background:linear-gradient(135deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(315deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 16%,var(--s1)),var(--s1));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 55%,transparent),inset 0 0 16px color-mix(in srgb,var(--bc) 16%,transparent)}
+.neo .sqbox.low{--bc:var(--amber)}.neo .sqbox.out{--bc:var(--red)}
+
+/* compteurs ENTRÉES / AFFICHÉES / VERROUILLÉES */
+.stats .a{--sc:var(--acc)}.stats .v{--sc:var(--acc2)}.stats .g{--sc:var(--orange)}
+.neo .stats{gap:6px}
+.neo .stats span{position:relative;flex-direction:column;align-items:flex-start;gap:3px;min-width:84px;padding:6px 12px 6px 11px;border:none;border-radius:0;font-size:7.5px;letter-spacing:.3em;color:color-mix(in srgb,var(--sc) 45%,var(--mute));clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+  background:linear-gradient(225deg,transparent 5.2px,var(--sc) 5.2px 6.9px,transparent 6.9px),linear-gradient(45deg,transparent 5.2px,var(--sc) 5.2px 6.9px,transparent 6.9px),repeating-linear-gradient(90deg,color-mix(in srgb,var(--sc) 10%,transparent) 0 1px,transparent 1px 6px) 0 100%/100% 3px no-repeat,linear-gradient(180deg,color-mix(in srgb,var(--sc) 18%,var(--s1)),color-mix(in srgb,var(--s1) 92%,transparent));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sc) 55%,transparent),inset 3px 0 0 var(--sc),inset 0 0 16px color-mix(in srgb,var(--sc) 16%,transparent)}
+.neo .stats b{order:-1;font-size:17px;line-height:1;color:var(--w)!important;text-shadow:0 0 8px var(--sc),0 0 18px color-mix(in srgb,var(--sc) 60%,transparent)!important}
+
+/* saison */
+.neo .season{--bc:var(--pink);position:relative;border:none;border-radius:0;gap:8px;padding:6px 8px 6px 12px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  background:linear-gradient(135deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(315deg,transparent 5.2px,var(--bc) 5.2px 6.9px,transparent 6.9px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 15%,var(--s2)),var(--s1));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 50%,transparent),inset 0 0 14px color-mix(in srgb,var(--bc) 14%,transparent)}
+.neo .season.on{--bc:var(--acc);box-shadow:inset 0 0 0 1px var(--bc),inset 0 0 24px color-mix(in srgb,var(--bc) 30%,transparent);animation:seasGlow 3s ease-in-out infinite}
+@keyframes seasGlow{50%{filter:brightness(1.18)}}
+.neo .season .sl{display:flex;flex-direction:column;line-height:1.25;font-size:7.5px;letter-spacing:.32em;color:color-mix(in srgb,var(--bc) 55%,var(--mute))}
+.neo .season .sl::before{content:'✦';font-size:12px;letter-spacing:0;color:var(--bc);text-shadow:0 0 8px var(--bc)}
+.neo .season select{border:none!important;border-radius:0;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px);background-color:color-mix(in srgb,var(--bc) 12%,var(--s1));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 50%,transparent);font-family:var(--f-ui);font-weight:700;font-size:10.5px;letter-spacing:.08em;padding:6px 28px 6px 9px;min-width:130px;color:var(--w)}
+.neo .season select:disabled{opacity:1;cursor:default}
+.neo .season button{width:30px;height:30px;border:none;border-radius:0;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:color-mix(in srgb,var(--bc) 16%,var(--s1));box-shadow:inset 0 0 0 1px var(--bc);color:var(--bc);display:flex;align-items:center;justify-content:center;transition:.15s}
+.neo .season button:hover{background:color-mix(in srgb,var(--bc) 32%,var(--s1))}
+.neo .season button.on{background:linear-gradient(135deg,var(--w),var(--bc));color:var(--s0)}
+/* niveau de boutique */
+.neo .shoplv{border:none;border-radius:0;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lc,var(--line2)) 70%,transparent),inset 0 0 22px color-mix(in srgb,var(--lc,var(--line2)) 22%,transparent)}
+.neo .shoplv .pm button{border:none;border-radius:0;clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lc) 60%,transparent);background:color-mix(in srgb,var(--lc) 12%,var(--s1));color:var(--lc)}
+.neo .shoplv .pm button:hover{background:color-mix(in srgb,var(--lc) 35%,var(--s1));color:var(--w)}
+.neo .shoplv .who{border:none;border-radius:0;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lc) 50%,transparent);background-color:color-mix(in srgb,var(--lc) 10%,var(--s1))}
+
+/* barre de filtres : jamais de retour à la ligne à la largeur par défaut */
+.tools{flex-wrap:wrap}
+.tools .rangbar,.tools .sep,.tools .view{flex:none}
+.tools .sel{flex:1 1 100px;min-width:88px;max-width:190px!important;text-overflow:ellipsis;white-space:nowrap}
+#sort{flex:1 1 118px;margin-left:0!important}
+.neo .tools .sel{--bc:var(--fc,var(--acc));border:none!important;border-radius:0!important;clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);padding:8px 24px 8px 10px!important;font-family:var(--f-ui);font-size:10px!important;letter-spacing:.05em;
+  background-image:var(--chev),linear-gradient(135deg,transparent 4.5px,var(--bc) 4.5px 6.1px,transparent 6.1px),linear-gradient(315deg,transparent 4.5px,var(--bc) 4.5px 6.1px,transparent 6.1px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 24%,var(--s2)),color-mix(in srgb,var(--bc) 8%,var(--s1)))!important;
+  background-size:12px,auto,auto,auto!important;background-position:right 7px center,0 0,0 0,0 0!important;background-repeat:no-repeat!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 60%,transparent),inset 0 -2px 0 color-mix(in srgb,var(--bc) 70%,transparent),inset 0 0 14px color-mix(in srgb,var(--bc) 14%,transparent)!important;text-shadow:0 0 8px color-mix(in srgb,var(--bc) 70%,transparent);transition:filter .15s}
+.neo .tools .sel:hover{filter:brightness(1.2)}
+.neo .tools .sel.act{background-image:var(--chev),linear-gradient(135deg,transparent 4.5px,var(--bc) 4.5px 6.1px,transparent 6.1px),linear-gradient(315deg,transparent 4.5px,var(--bc) 4.5px 6.1px,transparent 6.1px),linear-gradient(180deg,color-mix(in srgb,var(--bc) 50%,var(--s2)),color-mix(in srgb,var(--bc) 26%,var(--s1)))!important;box-shadow:inset 0 0 0 1px var(--bc),inset 0 0 20px color-mix(in srgb,var(--bc) 40%,transparent)!important}
+.neo .rangbar .lbl{font-family:var(--f-title);color:color-mix(in srgb,var(--acc) 60%,var(--mute));letter-spacing:.32em}
+.neo .rb.on{transform:translateY(-1px) scale(1.06)}
+/* affichage cartes / liste */
+.neo .view{--bc:var(--acc);border:none!important;border-radius:0!important;padding:3px;gap:3px;clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);background:linear-gradient(180deg,var(--s2),var(--s1));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bc) 55%,transparent)}
+.neo .view button{width:34px;height:28px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:0;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px);background:transparent!important;color:color-mix(in srgb,var(--bc) 60%,var(--mute))!important;transition:.15s}
+.neo .view button:hover{color:var(--w)!important;background:color-mix(in srgb,var(--bc) 14%,transparent)!important}
+.neo .view button.on{background:linear-gradient(180deg,var(--acc-l),var(--bc))!important;color:var(--s0)!important;box-shadow:inset 0 0 10px #ffffff66}
+
+/* arbre */
+.neo .tree button:hover{background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--acc)) 14%,transparent),transparent);border-left-color:color-mix(in srgb,var(--tc,var(--acc)) 60%,transparent)}
+.neo .tree button.on{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tc,var(--acc)) 30%,transparent);text-shadow:0 0 8px color-mix(in srgb,var(--tc,var(--acc)) 60%,transparent)}
+.neo .tree .th{border-radius:0;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+
+/* cartes : contour néon prononcé */
+.neo .card{border:1px solid color-mix(in srgb,var(--rc) 72%,transparent);border-top:2px solid color-mix(in srgb,var(--tc,var(--rc)) 85%,transparent);border-radius:5px;
+  background:linear-gradient(var(--rc),var(--rc)) 100% 100%/14px 2px no-repeat,linear-gradient(var(--rc),var(--rc)) 100% 100%/2px 14px no-repeat,linear-gradient(var(--rc),var(--rc)) 0 100%/14px 2px no-repeat,linear-gradient(var(--rc),var(--rc)) 0 100%/2px 14px no-repeat,linear-gradient(160deg,color-mix(in srgb,var(--rc) 8%,var(--s2)),var(--s1) 70%);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--rc) 16%,transparent),0 0 14px color-mix(in srgb,var(--rc) 32%,transparent),inset 0 0 20px color-mix(in srgb,var(--rc) 10%,transparent);content-visibility:auto;contain-intrinsic-size:auto 190px}
+.neo .card:hover,.neo .card.on{border-color:var(--rc);box-shadow:0 0 0 1px var(--rc),0 0 28px color-mix(in srgb,var(--rc) 58%,transparent),inset 0 0 28px color-mix(in srgb,var(--rc) 18%,transparent);transform:translateY(-2px)}
+.neo .card.on{outline:1px solid color-mix(in srgb,var(--w) 50%,transparent);outline-offset:2px}
+.neo .card .rban{background:linear-gradient(90deg,color-mix(in srgb,var(--rr) 42%,var(--s1)),color-mix(in srgb,var(--rr) 12%,transparent) 75%,transparent),repeating-linear-gradient(90deg,transparent 0 6px,#ffffff08 6px 7px)}
+.neo .card.locked{box-shadow:none;border-color:color-mix(in srgb,var(--lkc) 40%,var(--line))}
+.neo .row{box-shadow:0 0 10px color-mix(in srgb,var(--rc) 18%,transparent);border-color:color-mix(in srgb,var(--rc) 45%,var(--line))}
+.neo .row:hover,.neo .row.on{box-shadow:0 0 18px color-mix(in srgb,var(--rc) 40%,transparent)}
+
+/* objets de haut rang / haute rareté */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.card.rq1,.card.rq2,.card.rq3{--fxc:var(--rr)}
+.card.hr1,.card.hr2,.card.hr3{--fxc:var(--rc)}
+.card .fx{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;overflow:hidden}
+.card .fx::before{content:'';position:absolute;top:-20%;bottom:-20%;left:0;width:36%;background:linear-gradient(100deg,transparent,color-mix(in srgb,var(--fxc) 26%,transparent) 42%,#ffffff47 50%,color-mix(in srgb,var(--fxc) 26%,transparent) 58%,transparent);transform:translateX(-130%) skewX(-18deg);animation:fxSweep var(--fxd,8s) ease-in-out infinite;animation-delay:var(--fxdl,0s);will-change:transform}
+.card .fx::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--fxc),inset 0 0 24px color-mix(in srgb,var(--fxc) 50%,transparent);opacity:0;animation:fxPulse var(--fxp,3s) ease-in-out infinite;animation-delay:var(--fxdl,0s)}
+@keyframes fxSweep{0%,60%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(400%) skewX(-18deg)}}
+@keyframes fxPulse{50%{opacity:var(--fxo,1)}}
+.card.rq1 .fx{--fxd:9s}.card.rq1 .fx::after{display:none}
+.card.rq2 .fx{--fxd:6.5s;--fxo:.55}
+.card.hr1 .fx{--fxd:7s;--fxo:.5}
+.card.hr2 .fx{--fxd:5s;--fxo:.8;--fxp:2.6s}
+.card.hr3 .fx,.card.rq3 .fx{--fxd:3.8s;--fxo:1;--fxp:2.2s}
+.card.hr2 .badge,.card.hr3 .badge{animation:hrBadge 2.6s ease-in-out infinite}
+@keyframes hrBadge{50%{filter:drop-shadow(0 0 9px var(--rc)) brightness(1.25)}}
+.card.rq2 .rban span,.card.rq3 .rban span{animation:rqText 3s ease-in-out infinite}
+@keyframes rqText{50%{text-shadow:0 0 6px var(--rr),0 0 16px var(--rr),0 0 2px #fff}}
+.fxb{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ang),transparent 0 58%,color-mix(in srgb,var(--fxc,var(--rc)) 70%,transparent) 72%,#fff 76%,var(--fxc,var(--rc)) 80%,transparent 94%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:fxSpin 3.4s linear infinite}
+@keyframes fxSpin{to{--ang:360deg}}
+.neo .card.hr3,.neo .card.rq3{box-shadow:0 0 0 1px var(--fxc),0 0 22px color-mix(in srgb,var(--fxc) 55%,transparent),inset 0 0 26px color-mix(in srgb,var(--fxc) 16%,transparent)}
+body.nofx .card .fx,body.nofx .fxb{display:none}
+body.nofx .card .badge,body.nofx .card .rban span{animation:none!important}
+@media (prefers-reduced-motion:reduce){.card .fx,.fxb,.card .badge,.card .rban span{animation:none!important}.card .fx{display:none}}
+
+/* fenêtre de détail : contour néon prononcé */
+.neo .dwin{border:1.5px solid color-mix(in srgb,var(--rc) 88%,transparent);border-radius:6px;box-shadow:0 0 0 1px color-mix(in srgb,var(--rc) 22%,transparent),0 0 30px color-mix(in srgb,var(--rc) 48%,transparent),inset 0 0 44px color-mix(in srgb,var(--rc) 12%,transparent)}
+.neo .dwin::after{content:'';position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--rc) 9%,transparent) 70%,color-mix(in srgb,var(--rc) 22%,transparent) 98%,transparent);transform:translateY(-130px);animation:dScan 7s linear infinite;pointer-events:none;z-index:1}
+@keyframes dScan{to{transform:translateY(1600px)}}
+.neo .dwin .corn{width:24px;height:24px;border-width:2px;border-color:var(--rc);filter:drop-shadow(0 0 6px var(--rc))}
+.neo .dwin .dhead{border-bottom:1px solid color-mix(in srgb,var(--rc) 55%,transparent);box-shadow:0 1px 0 color-mix(in srgb,var(--rc) 20%,transparent),0 8px 18px -12px var(--rc)}
+.neo .dwin .dhead .sys{display:inline-block;padding:2px 8px;color:var(--s0);background:linear-gradient(90deg,var(--rc),color-mix(in srgb,var(--rc) 40%,transparent));clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);font-weight:700;letter-spacing:.24em;text-shadow:none;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.neo .dwin .dhead .name{text-shadow:0 0 10px color-mix(in srgb,var(--rc) 80%,transparent),0 0 26px color-mix(in srgb,var(--rc) 40%,transparent)}
+.neo .dwin .dbody h5{color:color-mix(in srgb,var(--rc) 70%,var(--tx));letter-spacing:.32em}
+.neo .dwin .dbody h5::before{content:'';width:8px;height:8px;background:var(--rc);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);box-shadow:0 0 6px var(--rc);flex:none}
+.neo .dwin .dbody h5::after{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 60%,transparent),transparent)}
+.neo .dwin .tag{border-radius:0;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)}
+.neo .dwin .tag.rar{background:color-mix(in srgb,var(--rr) 16%,transparent)}
+.neo .dwin .dicon{border-radius:0;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);width:50px;height:46px;border:none;box-shadow:inset 0 0 0 1px var(--tc),inset 0 0 14px color-mix(in srgb,var(--tc) 35%,transparent)}
+.dwin .fxb{--fxc:var(--rc);padding:2.5px}
+.dwin.rq3:not(.hr3) .fxb{--fxc:var(--rr)}
+.neo .dwin.hr2,.neo .dwin.hr3,.neo .dwin.rq3{animation:dGlow 3s ease-in-out infinite}
+@keyframes dGlow{50%{box-shadow:0 0 0 1px var(--rc),0 0 46px color-mix(in srgb,var(--rc) 70%,transparent),inset 0 0 50px color-mix(in srgb,var(--rc) 18%,transparent)}}
+
+/* séparateurs de rang : bannière néon foncée et miroitante */
+.neo .rsec{display:block;position:relative;margin:24px 0 12px;text-shadow:none}
+.neo .rsec::after{display:none}
+.neo .rsec::before{content:'';position:absolute;inset:8px 3%;background:var(--rc);filter:blur(18px);opacity:.3;pointer-events:none}
+.neo .rsec .rbn{position:relative;height:46px;padding:0 18px 0 12px;gap:14px;overflow:hidden;clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  background:linear-gradient(135deg,transparent 9.6px,var(--rc) 9.6px 11.6px,transparent 11.6px),linear-gradient(315deg,transparent 9.6px,var(--rc) 9.6px 11.6px,transparent 11.6px),linear-gradient(180deg,#ffffff1f,#ffffff05 48%,transparent 52%),linear-gradient(90deg,color-mix(in srgb,var(--rc) 40%,#000),color-mix(in srgb,var(--rc) 24%,#000) 50%,color-mix(in srgb,var(--rc) 12%,#000));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--rc) 85%,transparent),inset 0 2px 0 color-mix(in srgb,var(--rc) 50%,transparent),inset 0 0 26px color-mix(in srgb,var(--rc) 30%,transparent)}
+.neo .rsec .rbn .sh{display:block;position:absolute;top:0;bottom:0;left:0;width:28%;background:linear-gradient(100deg,transparent,color-mix(in srgb,var(--rc) 55%,#fff) 50%,transparent);opacity:.45;mix-blend-mode:screen;transform:translateX(-130%) skewX(-20deg);animation:fxSweep 4.6s ease-in-out infinite;pointer-events:none}
+.neo .rsec .rt{font-family:var(--f-title);font-weight:900;font-size:15px;letter-spacing:.36em;color:#fff;text-shadow:0 0 6px var(--rc),0 0 16px var(--rc),0 0 30px color-mix(in srgb,var(--rc) 60%,transparent)}
+.neo .rsec small{margin-left:auto;padding:4px 12px;border:none;border-radius:0;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);background:color-mix(in srgb,var(--rc) 20%,#000);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--rc) 70%,transparent);color:#fff;letter-spacing:.24em}
+.neo .rsec .rbn::after{content:'';flex:none;width:90px;height:8px;background:repeating-linear-gradient(90deg,var(--rc) 0 3px,transparent 3px 7px);opacity:.7;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.neo .rsec .badge{width:36px;height:36px;filter:drop-shadow(0 0 6px var(--rc))}
+.neo .rsec .badge .hx{fill:color-mix(in srgb,var(--rc) 25%,#000)}
+@media (prefers-reduced-motion:reduce){.neo .rsec .rbn .sh,.neo .dwin::after,.neo .search::before{animation:none}}

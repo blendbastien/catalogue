@@ -1,0 +1,22 @@
+<form autocomplete="off">
+  <p class="hint">Clés des propriétés <b>system.props</b> de tes objets Custom System Builder. Laisse vide un champ que tu n'as pas. Exemple : si ta fiche a un champ « Rang » avec la clé <code>rang</code>, écris <code>rang</code>.</p>
+  <div class="form-group"><label>Type d'Item CSB</label><input name="m.itemType" value="{{m.itemType}}"></div>
+  <div class="form-group"><label>Nom du template d'objet (vide = premier trouvé)</label><input name="m.templateName" value="{{m.templateName}}"></div>
+  <hr>
+  <div class="form-group"><label>Clé Rang (F…SSS)</label><input name="m.keyRang" value="{{m.keyRang}}"></div>
+  <div class="form-group"><label>Clé Rang numérique (1–9, optionnel)</label><input name="m.keyRangNum" value="{{m.keyRangNum}}"></div>
+  <div class="form-group"><label>Clé Rareté</label><input name="m.keyRarete" value="{{m.keyRarete}}"></div>
+  <div class="form-group"><label>Clé Type (sous-catégorie : épée, anneau…)</label><input name="m.keyType" value="{{m.keyType}}"></div>
+  <div class="form-group"><label>Clé Catégorie (optionnel)</label><input name="m.keyCategorie" value="{{m.keyCategorie}}"></div>
+  <div class="form-group"><label>Clé Élément</label><input name="m.keyElement" value="{{m.keyElement}}"></div>
+  <div class="form-group"><label>Clé Gold</label><input name="m.keyGold" value="{{m.keyGold}}"></div>
+  <div class="form-group"><label>Clé Quantité</label><input name="m.keyQuantite" value="{{m.keyQuantite}}"></div>
+  <div class="form-group"><label>Clé Niveau (compétences)</label><input name="m.keyNiveau" value="{{m.keyNiveau}}"></div>
+  <div class="form-group"><label>Clé Description</label><input name="m.keyDescription" value="{{m.keyDescription}}"></div>
+  <div class="form-group"><label>Clé Lore</label><input name="m.keyLore" value="{{m.keyLore}}"></div>
+  <div class="form-group"><label>Clé Nom (si ta fiche a un champ nom séparé)</label><input name="m.keyName" value="{{m.keyName}}"></div>
+  <hr>
+  <div class="form-group"><label>Chemin du portefeuille de l'acteur</label><input name="m.actorGoldPath" value="{{m.actorGoldPath}}"></div>
+  <div class="form-group"><label>Débiter les G à l'achat</label><input type="checkbox" name="m.deduct" {{#if m.deduct}}checked{{/if}}></div>
+  <footer class="sheet-footer"><button type="submit"><i class="fa-solid fa-save"></i> Enregistrer</button></footer>
+</form>

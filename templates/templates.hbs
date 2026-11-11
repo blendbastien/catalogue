@@ -1,0 +1,9 @@
+<form class="lh-tpl">
+  {{#unless csb}}<p><b>Le système actif n'est pas Custom System Builder</b> : les objets sont créés en type générique, aucun template n'est nécessaire.</p>{{/unless}}
+  <p class="hint">Le Catalogue crée et entretient ses propres templates d'objets (préfixe « Catalogue — »). Ils sont indépendants de vos templates. « Mettre à jour » réécrit leurs listes (rangs, raretés, éléments) d'après la configuration actuelle du Catalogue.</p>
+  <table class="lh-sq-table">
+    <thead><tr><th>Template</th><th>État</th><th>Champs</th></tr></thead>
+    <tbody>{{#each list}}<tr><td>{{name}}</td><td>{{#if exists}}<span style="color:#2a8a3a">présent</span>{{else}}<span style="color:#b03030">manquant</span>{{/if}}</td><td><small>{{fields}}</small></td></tr>{{/each}}</tbody>
+  </table>
+  <footer class="sheet-footer"><button type="button" data-create><i class="fa-solid fa-plus"></i> Créer les manquants</button><button type="button" data-update><i class="fa-solid fa-rotate"></i> Mettre à jour tous</button></footer>
+</form>
