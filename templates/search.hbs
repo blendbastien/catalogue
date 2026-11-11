@@ -1,0 +1,30 @@
+<form autocomplete="off" class="lh-sq">
+  <p class="hint">Chaque joueur dispose d'un nombre de recherches par jour dans la barre de recherche du Catalogue (validées avec Entrée). Le MJ n'est jamais limité. Le compteur se remet à zéro chaque jour ({{today}}).</p>
+  <div class="form-group"><label>Recherches quotidiennes limitées</label><input type="checkbox" name="enabled" {{#if enabled}}checked{{/if}}></div>
+  <div class="form-group"><label>Recherches par jour et par joueur</label><input type="number" name="quota" value="{{quota}}" min="0" max="50"></div>
+  <hr>
+  <table class="lh-sq-table">
+    <thead><tr><th>Joueur</th><th>Utilisées</th><th>Bonus</th><th>Restantes</th><th>Dernière</th><th></th></tr></thead>
+    <tbody>
+    {{#each users}}
+      <tr>
+        <td><span class="dot" style="background:{{color}}"></span> {{name}}{{#unless active}} <small>(hors ligne)</small>{{/unless}}</td>
+        <td>{{used}}</td>
+        <td>{{extra}}</td>
+        <td><b>{{remaining}}</b> / {{total}}</td>
+        <td><small>{{last}}</small></td>
+        <td class="acts">
+          <button type="button" data-act="plus" data-n="1" data-user="{{id}}" title="+1 recherche (permanent)">+1</button>
+          <button type="button" data-act="plus" data-n="5" data-user="{{id}}" title="+5 recherches (permanent)">+5</button>
+          <button type="button" data-act="minus" data-n="1" data-user="{{id}}" title="−1">−1</button>
+          <button type="button" data-act="reset" data-user="{{id}}" title="Remettre le compteur du jour à zéro"><i class="fa-solid fa-rotate-left"></i></button>
+          <button type="button" data-act="clearExtra" data-user="{{id}}" title="Supprimer le bonus"><i class="fa-solid fa-eraser"></i></button>
+        </td>
+      </tr>
+    {{/each}}
+    {{#unless users.length}}<tr><td colspan="6"><i>Aucun joueur dans ce monde.</i></td></tr>{{/unless}}
+    </tbody>
+  </table>
+  <p class="hint">« Bonus » s'ajoute au quota quotidien de façon permanente pour ce joueur (peut être négatif). « Remettre à zéro » rend toutes ses recherches du jour.</p>
+  <footer class="sheet-footer"><button type="button" data-all-reset><i class="fa-solid fa-rotate-left"></i> Tout remettre à zéro</button><button type="submit"><i class="fa-solid fa-save"></i> Enregistrer le quota</button></footer>
+</form>

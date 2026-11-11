@@ -1,8 +1,8 @@
 {
   "id": "last-horizon-catalogue",
-  "title": "The Last Horizon — Le Catalogue (Boutique du Système)",
-  "description": "La Boutique du Système en fenêtre Foundry : 8 121 entrées livrées, entièrement éditables (mode édition, catégories, types, icônes vectorielles, thèmes, roulette, saisons, niveaux), achat créant l'objet sur la fiche Custom System Builder, recherches quotidiennes limitées par joueur (contrôlées par le MJ), import en compendium.",
-  "version": "2.0.1",
+  "title": "Boutique - Manhwa",
+  "description": "La Boutique du Système : le MJ compose des blocs d'objets tirés du catalogue complet (15 000 objets), avec niveaux de boutique par personnage (Novice → Mythique), étiquettes, groupes, promotions et offres groupées, stock partagé, panier ou achat direct, historique avec annulation, Signal Quotidien (récompenses journalières), thèmes des événements et bandeau des nouvelles du cosmos. Achat créant l'objet sur la fiche (Manhwa Sheet ou Custom System Builder).",
+  "version": "3.11.0",
   "authors": [
     {
       "name": "Bastien"
@@ -16,13 +16,27 @@
     "scripts/main.js"
   ],
   "styles": [
-    "styles/catalogue.css"
+    "styles/catalogue.css",
+    "styles/catbg.css",
+    "styles/boutique.css"
   ],
   "relationships": {
     "recommends": [
       {
+        "id": "manhwa-sheet",
+        "type": "system"
+      },
+      {
         "id": "custom-system-builder",
         "type": "system"
+      },
+      {
+        "id": "vehicules-manhwa",
+        "type": "module"
+      },
+      {
+        "id": "scenarios-manhwa",
+        "type": "module"
       }
     ]
   },

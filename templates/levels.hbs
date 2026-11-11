@@ -1,0 +1,21 @@
+<form autocomplete="off" class="lh-lv">
+  <p class="hint">Chaque joueur voit et achète les articles jusqu'à son niveau de boutique. Les articles d'un niveau supérieur lui sont cachés. Un joueur sans niveau propre suit le niveau par défaut.</p>
+  <div class="lh-lv-def">
+    <label>Niveau par défaut</label>
+    <select name="def">{{#each defOpts}}<option value="{{n}}" {{#if sel}}selected{{/if}}>{{n}} · {{name}}</option>{{/each}}</select>
+  </div>
+  <table class="lh-sq-table lh-lv-table">
+    <thead><tr><th>Joueur</th><th>Niveau propre</th><th>Niveau effectif</th></tr></thead>
+    <tbody>
+    {{#each users}}
+      <tr>
+        <td><span class="dot" style="background:{{color}}"></span> {{name}}{{#unless active}} <small>(hors ligne)</small>{{/unless}}</td>
+        <td><select name="u-{{id}}"><option value="0" {{#unless own}}selected{{/unless}}>— par défaut —</option>{{#each opts}}<option value="{{n}}" {{#if sel}}selected{{/if}}>{{n}} · {{name}}</option>{{/each}}</select></td>
+        <td><span class="lh-lv-chip" style="--c:{{effColor}}">{{eff}} · {{effName}}</span></td>
+      </tr>
+    {{/each}}
+    {{#unless users.length}}<tr><td colspan="3"><i>Aucun joueur dans ce monde.</i></td></tr>{{/unless}}
+    </tbody>
+  </table>
+  <footer class="sheet-footer"><button type="button" data-all-default><i class="fa-solid fa-rotate-left"></i> Tous au niveau par défaut</button><button type="submit"><i class="fa-solid fa-save"></i> Enregistrer</button></footer>
+</form>
